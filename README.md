@@ -7,7 +7,7 @@
 Watch a video, cut out the parts you don't need and save the result — in the same window, in seconds,
 without re-encoding the whole file.
 
-[**⬇ Download for Windows**](../../releases/latest) · English / Русский · Free & open source (GPL-3.0)
+[**⬇ Download for Windows**](../../releases/latest) · [**♥ Support the project**](https://donatex.gg/donate/absolo) · English / Русский · Free & open source (GPL-3.0)
 
 ![Snip Player — editor with segments, waveform and audio tracks](docs/images/editor.png)
 
@@ -159,6 +159,13 @@ python -m pip install -r requirements.txt
 | `сборка/` | portable build: PyInstaller spec, `build.py`, readme and licenses for the package |
 
 </details>
+
+## Support the project
+
+Snip Player is free and will stay free. If it saves you time, you can support its development with a donation:
+**[donatex.gg/donate/absolo](https://donatex.gg/donate/absolo)** ♥
+
+Bug reports and ideas are welcome too — open an [issue](../../issues).
 
 ## License
 
