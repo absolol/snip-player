@@ -1,0 +1,62 @@
+Snip Player — a video player for Windows with video trimming
+============================================================
+
+Nothing to install: everything it needs is already in this folder.
+
+
+How to start
+------------
+1. Extract the archive to any folder (for example, "Documents\Snip Player" or drive D:).
+   Don't run it from inside the archive — extract it first.
+2. Double-click "Snip Player.exe".
+3. Open a video: drag a file into the window or press Ctrl+O.
+
+If Windows shows a blue "Windows protected your PC" window, click
+"More info" → "Run anyway". This happens with any program that isn't from the Store.
+
+You need 64-bit Windows 10 or 11.
+
+
+Language
+--------
+The player starts in English, or in Russian if Windows is in Russian.
+To switch: gear icon at the bottom right → "Settings…" → "Appearance" →
+"Язык · Language" → "Русский" / "English". The player offers to restart; the open video
+continues from the same spot.
+
+
+How to make it the default video player
+---------------------------------------
+1. In the player: gear icon at the bottom right → "Settings…" → "System" →
+   "Make it the video player". No administrator rights needed.
+2. Right-click any video → "Open with" → "Choose another app" → "Snip Player" → "Always".
+   Windows asks you to do this once for each format (mp4, mkv, avi…) — a program
+   can't make itself the default on its own.
+
+If you later move the player's folder somewhere else, click "Make it the video player"
+again. To undo, use "Remove registration" in the same place.
+
+
+What it can do
+--------------
+- Opens almost any video (mpv engine).
+- Trimming: the scissors button or the C key. S splits, Ctrl+X deletes a segment,
+  "Save as copy" saves the result (lossless or fast).
+- Screenshot of the frame — the P key (to "Pictures\Snip Player" and the clipboard).
+- All keyboard shortcuts — gear icon → "Keyboard shortcuts".
+
+
+Where the settings are stored
+-----------------------------
+In the settings.ini file next to "Snip Player.exe" — you can carry the folder on a USB
+stick together with your settings. If the player is somewhere it can't write to (for example,
+"Program Files"), the settings are stored in %APPDATA%\Snip Player.
+
+To remove the player: click "Remove registration" in the settings (if you used
+"Make it the video player"), then simply delete the folder.
+
+
+Licenses
+--------
+The player uses FFmpeg, mpv, Qt and other free software — the list and the license
+texts are in the "Лицензии" ("Licenses") folder.

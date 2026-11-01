@@ -1,0 +1,15 @@
+{
+  "name": "Светлая",
+  "bg": "#eef0f4",
+  "surface": "#ffffff",
+  "surface2": "#e3e6ec",
+  "border": "#d3d7df",
+  "text": "#1b1d23",
+  "text_dim": "#5f6470",
+  "accent": "#2f6fec",
+  "accent_hover": "#4a82f0",
+  "accent_text": "#ffffff",
+  "danger": "#d93036",
+  "video_bg": "#000000",
+  "radius": 8
+}

@@ -1,0 +1,619 @@
+/* Общий шаблон оформления. $имя заменяется значением из JSON-файла выбранной темы. */
+
+* {
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    color: $text;
+}
+
+QMainWindow, QWidget#central {
+    background: $bg;
+}
+
+/* --- Заголовок окна («Капсулы») --- */
+
+QWidget#titleBar {
+    background: $bg;
+}
+QWidget#titlePill {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: ${radius_pill}px;
+}
+QMenuBar#titleMenu {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+QMenuBar#titleMenu::item {
+    padding: 5px 8px;
+    margin: 0;
+    border-radius: 6px;
+}
+QMenuBar#titleMenu::item:selected {
+    background: $surface2;
+}
+QPushButton#titleText {
+    background: $surface2;
+    color: $text_dim;
+    border: none;
+    border-radius: 14px;
+    padding: 0 18px;
+}
+QPushButton#titleText[active="true"] {
+    color: $text;
+}
+/* Щелчок по имени файла открывает сведения о видео (info_panel.py). */
+QPushButton#titleText[clickable="true"]:hover, QPushButton#titleText[open="true"] {
+    background: $border;
+    color: $text;
+}
+/* Во весь экран — отдельная капсула с именем поверх видео. */
+QPushButton#titleText[floating="true"] {
+    background: $surface;
+    border: 1px solid $border;
+    color: $text;
+}
+QPushButton#titleText[floating="true"]:hover, QPushButton#titleText[floating="true"][open="true"] {
+    background: $surface2;
+}
+QPushButton#titleButton, QPushButton#closeButton {
+    font-family: "$icon_font";
+    font-size: 8pt;
+    border: none;
+    border-radius: 13px;
+    background: $surface2;
+    color: $text;
+}
+QPushButton#titleButton:hover, QPushButton#titleButton[ncHover="true"] {
+    background: $border;
+}
+QPushButton#titleButton:pressed, QPushButton#titleButton[ncPressed="true"] {
+    background: $text_dim;
+}
+QPushButton#closeButton {
+    background: $accent;
+    color: $accent_text;
+}
+QPushButton#closeButton:hover {
+    background: $accent_hover;
+}
+/* Обводка кнопок окна — включается настройкой (TitleBar.set_outline). */
+QWidget#titleBar[outline="soft"] QPushButton#titleButton {
+    border: 1.5px solid $text_dim;
+}
+QWidget#titleBar[outline="soft"] QPushButton#closeButton {
+    border: 1.5px solid $accent_hover;
+}
+QWidget#titleBar[outline="accent"] QPushButton#titleButton {
+    border: 1.5px solid $accent;
+}
+QWidget#titleBar[outline="accent"] QPushButton#closeButton {
+    border: 1.5px solid $text;
+}
+
+/* --- Меню --- */
+
+QMenuBar {
+    background: $surface;
+    border-bottom: 1px solid $border;
+    padding: 2px 4px;
+}
+QMenuBar::item {
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+QMenuBar::item:selected {
+    background: $surface2;
+}
+QMenu {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: ${radius}px;
+    padding: 4px;
+}
+QMenu::item {
+    padding: 6px 28px 6px 14px;
+    border-radius: 4px;
+}
+QMenu::item:selected {
+    background: $accent;
+    color: $accent_text;
+}
+QMenu::separator {
+    height: 1px;
+    background: $border;
+    margin: 4px 6px;
+}
+
+/* --- Видео и заставка --- */
+
+QFrame#video {
+    background: $video_bg;
+}
+QWidget#videoArea {
+    background: $bg;
+}
+/* Пока открыто видео, поля у краёв окна (за них тянут край) — цвета полей видео, без светлых полосок. */
+QWidget#videoArea[media="true"] {
+    background: $video_bg;
+}
+QWidget#placeholder {
+    background: $bg;
+}
+QLabel#placeholderIcon {
+    font-family: "$icon_font";
+    font-size: 48pt;
+    color: $text_dim;
+}
+QLabel#placeholderText {
+    font-size: 12pt;
+    color: $text_dim;
+}
+
+/* Стекло вокруг надписи и отступы — в коде (player/overlay.py); padding здесь не задавать. */
+QLabel#videoOverlay {
+    color: $text;
+    font-size: 10.5pt;
+    font-weight: 600;
+}
+
+/* --- Панель управления --- */
+
+QWidget#controlBar {
+    background: $surface;
+    border-top: 1px solid $border;
+}
+
+QPushButton#iconButton {
+    font-family: "$icon_font";
+    font-size: 13pt;
+    background: transparent;
+    border: none;
+    border-radius: ${radius}px;
+    min-width: 34px;
+    min-height: 34px;
+}
+QPushButton#iconButton:hover {
+    background: $surface2;
+}
+QPushButton#iconButton:pressed {
+    background: $border;
+}
+QPushButton#iconButton:disabled {
+    color: $text_dim;
+}
+QPushButton#iconButton:checked {
+    background: $accent;
+    color: $accent_text;
+}
+
+/* --- Панель редактора --- */
+
+QPushButton#editButton {
+    background: $surface2;
+    border: 1px solid $border;
+    border-radius: ${radius}px;
+    padding: 5px 12px;
+}
+QPushButton#editButton:hover {
+    border-color: $accent;
+}
+QPushButton#editButton:pressed {
+    background: $border;
+}
+QPushButton#editButton:disabled {
+    color: $text_dim;
+    border-color: $surface2;
+}
+QFrame#editSeparator {
+    background: $border;
+}
+QPushButton#splitButton {
+    background: $accent;
+    color: $accent_text;
+    border: none;
+    border-radius: ${radius}px;
+    padding: 6px 16px;
+    font-weight: 600;
+}
+QPushButton#splitButton:hover {
+    background: $accent_hover;
+}
+QPushButton#splitButton:disabled {
+    background: $surface2;
+    color: $text_dim;
+}
+QPushButton#infoButton {
+    border-radius: 10px;
+    border: none;
+    background: $surface2;
+    color: $accent;
+    font-family: "Georgia";
+    font-style: italic;
+    font-weight: 700;
+    font-size: 9.5pt;
+}
+/* Плашка времени над таймлайном (фон и рамка рисуются в коде) */
+QLabel#timeBubble {
+    color: $text;
+    font-family: "Consolas";
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 3px 9px;
+    background: transparent;
+}
+/* Подсказки «i» (карточка и тень рисуются в коде, edit_bar.TipsPopup) */
+QLabel#tipsTitle {
+    font-size: 11pt;
+    font-weight: 600;
+    color: $text;
+    background: transparent;
+}
+QLabel#tipsGroup {
+    font-size: 8pt;
+    font-weight: 600;
+    color: $text_dim;
+    background: transparent;
+}
+QWidget#tipKeys {
+    background: transparent;
+}
+QLabel#tipKeyCap {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: $text;
+    background: $surface2;
+    border: 1px solid $border;
+    border-bottom: 2px solid $border;
+    border-radius: 5px;
+    padding: 1px 6px;
+}
+QLabel#tipSep {
+    font-size: 8.5pt;
+    color: $text_dim;
+    background: transparent;
+}
+QLabel#tipText {
+    font-size: 9.5pt;
+    color: $text;
+    background: transparent;
+}
+QLabel#editInfo {
+    color: $text_dim;
+}
+QProgressBar {
+    background: $surface2;
+    border: none;
+    border-radius: 4px;
+    height: 8px;
+    max-height: 8px;
+}
+QProgressBar::chunk {
+    background: $accent;
+    border-radius: 4px;
+}
+
+QPushButton#playButton {
+    font-family: "$icon_font";
+    font-size: 14pt;
+    background: $accent;
+    color: $accent_text;
+    border: none;
+    border-radius: 20px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+}
+QPushButton#playButton:hover {
+    background: $accent_hover;
+}
+QPushButton#playButton:disabled {
+    background: $surface2;
+    color: $text_dim;
+}
+
+QPushButton#primaryButton {
+    background: $accent;
+    color: $accent_text;
+    border: none;
+    border-radius: ${radius}px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+QPushButton#primaryButton:hover {
+    background: $accent_hover;
+}
+QPushButton#primaryButton:disabled {
+    background: $surface2;
+    color: $text_dim;
+}
+
+/* Кнопка сохранения: основная часть + стрелка с меню способов */
+QPushButton#saveMain, QPushButton#saveArrow {
+    background: $accent;
+    color: $accent_text;
+    border: none;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+QPushButton#saveMain {
+    border-top-left-radius: ${radius}px;
+    border-bottom-left-radius: ${radius}px;
+}
+QPushButton#saveArrow {
+    padding: 6px 9px;
+    border-top-right-radius: ${radius}px;
+    border-bottom-right-radius: ${radius}px;
+}
+QPushButton#saveMain:hover, QPushButton#saveArrow:hover {
+    background: $accent_hover;
+}
+QPushButton#saveMain:disabled, QPushButton#saveArrow:disabled {
+    background: $surface2;
+    color: $text_dim;
+}
+QMenu#saveMenu {
+    padding: 4px;
+}
+QWidget#saveOption {
+    background: transparent;
+    border-radius: 6px;
+}
+QWidget#saveOption:hover {
+    background: $surface2;
+}
+QLabel#saveOptionTitle {
+    font-weight: 600;
+    background: transparent;
+}
+QLabel#saveOptionText {
+    color: $text_dim;
+    font-size: 9pt;
+    background: transparent;
+}
+
+QLabel#timeLabel {
+    font-family: "Consolas";
+    color: $text_dim;
+}
+
+QSlider::groove:horizontal {
+    height: 4px;
+    background: $surface2;
+    border-radius: 2px;
+}
+QSlider::sub-page:horizontal {
+    background: $accent;
+    border-radius: 2px;
+}
+QSlider::handle:horizontal {
+    background: $text;
+    width: 12px;
+    height: 12px;
+    margin: -4px 0;
+    border-radius: 6px;
+}
+
+QComboBox {
+    background: $surface2;
+    border: 1px solid $border;
+    border-radius: ${radius}px;
+    padding: 3px 10px;
+    min-width: 44px;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 0px;
+}
+QComboBox QAbstractItemView {
+    background: $surface;
+    border: 1px solid $border;
+    selection-background-color: $accent;
+    selection-color: $accent_text;
+    outline: 0;
+}
+
+QToolTip {
+    background: $surface2;
+    color: $text;
+    border: 1px solid $border;
+    padding: 4px 6px;
+}
+
+/* --- Сведения о видео (щелчок по имени файла) --- */
+
+QLabel#infoName {
+    font-weight: 600;
+    font-size: 10.5pt;
+    background: transparent;
+}
+QLabel#infoGroup {
+    color: $accent;
+    font-weight: 700;
+    font-size: 8.5pt;
+    background: transparent;
+}
+QLabel#infoKey {
+    color: $text_dim;
+    font-size: 9.5pt;
+    background: transparent;
+}
+QLabel#infoValue {
+    font-size: 9.5pt;
+    background: transparent;
+}
+QFrame#infoLine {
+    background: $border;
+    border: none;
+}
+
+/* --- Окно «Настройки» (player/settings_window.py) --- */
+
+QWidget#settingsWindow {
+    background: $bg;
+}
+QWidget#settingsSide, QWidget#settingsRow, QScrollArea#settingsScroll, QWidget#settingsPage {
+    background: transparent;
+    border: none;
+}
+QPushButton#settingsNav {
+    text-align: left;
+    padding: 8px 12px 8px 38px;
+    border: none;
+    border-radius: ${radius}px;
+    background: transparent;
+    color: $text_dim;
+}
+QPushButton#settingsNav:hover {
+    color: $text;
+}
+QPushButton#settingsNav:checked {
+    background: $surface2;
+    color: $text;
+    font-weight: 600;
+}
+QLabel#settingsPageTitle {
+    font-size: 15pt;
+    font-weight: 600;
+    background: transparent;
+}
+QPushButton#settingsTitle {
+    background: $surface2;
+    border: none;
+    border-radius: 14px;
+    padding: 0 18px;
+    min-height: 28px;
+    font-weight: 600;
+}
+QFrame#settingsCard {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 12px;
+}
+QFrame#settingsLine {
+    background: $border;
+    border: none;
+    min-height: 1px;
+    max-height: 1px;
+}
+QLabel#settingsRowTitle {
+    background: transparent;
+}
+QLabel#settingsRowHint {
+    background: transparent;
+    color: $text_dim;
+    font-size: 8.5pt;
+}
+QWidget#segmented, QWidget#stepper {
+    background: $surface2;
+    border-radius: 13px;
+}
+QPushButton#segment {
+    background: transparent;
+    border: none;
+    border-radius: 11px;
+    min-height: 22px;
+    max-height: 22px;
+    padding: 0 12px;
+    color: $text_dim;
+}
+QPushButton#segment:hover {
+    color: $text;
+}
+QPushButton#segment:checked {
+    background: $accent;
+    color: $accent_text;
+    font-weight: 600;
+}
+QPushButton#stepButton {
+    background: transparent;
+    border: none;
+    border-radius: 11px;
+    min-width: 22px;
+    max-width: 22px;
+    min-height: 22px;
+    max-height: 22px;
+    font-size: 11pt;
+}
+QPushButton#stepButton:hover {
+    background: $border;
+}
+QPushButton#stepButton:disabled {
+    color: $border;
+}
+QLabel#stepValue {
+    background: transparent;
+    font-weight: 600;
+    min-width: 46px;
+}
+QLabel#settingsPath {
+    background: $surface2;
+    border-radius: ${radius}px;
+    padding: 5px 10px;
+    color: $text_dim;
+}
+QLabel#settingsStatus {
+    background: transparent;
+    font-weight: 600;
+    color: $text_dim;
+}
+QLabel#settingsStatus[ok="true"] {
+    color: $accent;
+}
+
+/* --- Окна-сообщения (player/dialogs.py) --- */
+
+QDialog#playerDialog {
+    background: $bg;
+}
+QLabel#dlgTitle {
+    font-size: 12.5pt;
+    font-weight: 600;
+    background: transparent;
+}
+QLabel#dlgText {
+    background: transparent;
+}
+QLabel#dlgFile {
+    font-weight: 600;
+    background: transparent;
+}
+QLabel#dlgDim {
+    color: $text_dim;
+    font-size: 9pt;
+    background: transparent;
+}
+QFrame#dlgNote {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 10px;
+}
+QPushButton#dlgPrimary, QPushButton#dlgDanger {
+    border: none;
+    border-radius: 8px;
+    padding: 7px 18px;
+    font-weight: 600;
+}
+QPushButton#dlgPrimary {
+    background: $accent;
+    color: $accent_text;
+}
+QPushButton#dlgPrimary:hover {
+    background: $accent_hover;
+}
+QPushButton#dlgDanger {
+    background: $danger;
+    color: #ffffff;
+}
+QPushButton#dlgSecondary {
+    background: $surface2;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 7px 16px;
+}
+QPushButton#dlgSecondary:hover {
+    border-color: $accent;
+}

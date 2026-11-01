@@ -1,0 +1,15 @@
+{
+  "name": "Тёмная",
+  "bg": "#16171b",
+  "surface": "#1f2026",
+  "surface2": "#2c2e36",
+  "border": "#363842",
+  "text": "#e8e9ee",
+  "text_dim": "#9a9ca6",
+  "accent": "#4f8cff",
+  "accent_hover": "#6c9fff",
+  "accent_text": "#ffffff",
+  "danger": "#e5484d",
+  "video_bg": "#000000",
+  "radius": 8
+}

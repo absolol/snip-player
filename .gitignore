@@ -1,0 +1,18 @@
+# User data
+settings.ini
+error.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+env*/
+
+# Large binaries (over GitHub's 100 MB limit) — see lib/README.md and сборка/ffmpeg/README.md
+lib/*.dll
+сборка/ffmpeg/*.exe
+
+# Build output
+build/
+dist/
+*.spec.bak

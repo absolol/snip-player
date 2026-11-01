@@ -1,0 +1,35 @@
+Из чего собран Snip Player и под какими лицензиями
+=====================================================
+
+FFmpeg {ffmpeg_version} (сборка www.gyan.dev) — сохранение обрезанного видео и сведения о файле
+    Файлы: _internal\ffmpeg\ffmpeg.exe, _internal\ffmpeg\ffprobe.exe
+    Лицензия: GNU GPL версии 3 — GPL-3.0.txt
+    Исходный код: https://ffmpeg.org/download.html, сборка: https://www.gyan.dev/ffmpeg/builds/
+
+mpv / libmpv (сборка shinchiro) — движок воспроизведения
+    Файл: _internal\lib\libmpv-2.dll
+    Лицензия: GNU GPL версии 2 или новее — GPL-2.0.txt
+    Исходный код: https://github.com/mpv-player/mpv, сборка: https://github.com/shinchiro/mpv-winbuild-cmake
+
+python-mpv {mpv_version} — связка Python с libmpv
+    Лицензия: GNU GPL v2+ или GNU LGPL v2.1+ (на выбор) — GPL-2.0.txt, LGPL-2.1.txt
+    Исходный код: https://github.com/jaseg/python-mpv
+
+Qt {qt_version} и PySide6 {qt_version} (Qt for Python) — окно и интерфейс
+    Файлы: _internal\PySide6\, _internal\shiboken6\
+    Лицензия: GNU LGPL версии 3 — LGPL-3.0.txt (дополняет GPL-3.0.txt)
+    Исходный код: https://download.qt.io/official_releases/QtForPython/ и https://code.qt.io/
+    Библиотеки Qt лежат отдельными файлами .dll — их можно заменить своей сборкой той же версии.
+
+Python {python_version} — среда выполнения
+    Файлы: _internal\python313.dll и модули рядом
+    Лицензия: Python Software Foundation License — Python (PSF).txt
+
+Lucide — значки кнопок
+    Лицензия: ISC — lucide (ISC).txt
+
+Lucide Animated — идеи анимаций значков
+    Лицензия: MIT — lucide-animated (MIT).txt
+
+Microsoft Visual C++ Runtime (vcruntime140.dll, msvcp140.dll и др.) — распространяется вместе
+с Python и Qt по условиям Microsoft для распространяемых компонентов Visual Studio.
